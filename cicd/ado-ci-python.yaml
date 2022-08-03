@@ -5,16 +5,4 @@ variables:
 trigger:
   - main
 
-  pool:
-    vmImage: 'ubuntu-latest' 
-
-  steps:
-  - task: Docker@2
-    displayName: Build an image
-    inputs:
-      repository: $(acrName)/$(imageName)
-      tags: |
-        latest
-        $(Build.BuildNumber) 
-      command: build
-      Dockerfile: Dockerfile
+g
