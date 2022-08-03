@@ -18,6 +18,5 @@ steps:
     tags: |
       latest
       $(Build.BuildNumber) 
-    command: build
     dockerfile: Dockerfile
     containerRegistry: $(acrConnectionName)
