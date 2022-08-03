@@ -1,5 +1,4 @@
 variables:
-  acrName: acrbxpv7s3vsxwh6.azurecr.io
   imageName: 'model-api'
   acrConnectionName: acrConnection
 
@@ -14,7 +13,7 @@ steps:
   displayName: Build an image
   inputs:
     command: buildAndPush
-    repository: $(acrName)/$(imageName)
+    repository: $(imageName)
     tags: |
       latest
       $(Build.BuildNumber) 
