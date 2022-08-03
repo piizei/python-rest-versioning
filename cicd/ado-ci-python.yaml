@@ -1,6 +1,7 @@
 variables:
   acrName: acrbxpv7s3vsxwh6.azurecr.io
   imageName: 'model-api'
+  acrConnectionName: acrConnection
 
 trigger:
   - main
@@ -12,9 +13,11 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
+    command: buildAndPush
     repository: $(acrName)/$(imageName)
     tags: |
       latest
       $(Build.BuildNumber) 
     command: build
-    Dockerfile: Dockerfile
+    dockerfile: Dockerfile
+    containerRegistry: $(acrConnectionName)
