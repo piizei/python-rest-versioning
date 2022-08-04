@@ -9,7 +9,7 @@ api = Api(app)
 
 class Model(Resource):
     def get(self):
-        return {'version':'1', 'fit': fit().tolist() }
+        return {'version':'2', 'fit': fit().tolist() }
 
 api.add_resource(Model, '/')
 
