@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from app.model.model import fit
+from flask_healthz import Healthz
 
 app = Flask(__name__)
+Healthz(app)
 api = Api(app)
 
 class Model(Resource):
@@ -16,3 +18,11 @@ def run():
 
 if __name__ == '__main__':
     run()
+
+
+app.config.update(
+    HEALTHZ = {
+        "live": "app.api.health.liveness",
+        "ready": "app.api.health.readiness",
+    }
+)

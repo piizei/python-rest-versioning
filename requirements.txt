@@ -1,3 +1,4 @@
 scikit-learn==1.1.1
 numpy==1.23.1
 flask-restful==0.3.9
+flask-healthz==0.0.3
